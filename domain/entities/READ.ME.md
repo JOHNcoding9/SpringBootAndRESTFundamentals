@@ -121,26 +121,26 @@ public int hashCode() {
 
 ## :open_book: Mapeamento das Entidades
 
-### 🔗 Anotações de classe  
+### 🔗 Anotações de CLASSE 
 | Anotação | Descrição |
 |----------|-----------|
 | `@Entity` | Marca a classe como entidade gerenciada pelo **JPA (Java Persistence API)**. |
 | `@Table(name = "nome_tabela")` | Define explicitamente o nome da tabela associada. Se omitida, o nome da classe será usado. |
 
-### :key: Anotações de identificação  
+### :key: Anotações de IDENTIFICAÇÃO 
 | Anotação | Descrição |
 |----------|-----------|
 | `@Id` | Identifica o campo que representa a **chave primária** da entidade. |
 | `@GeneratedValue(strategy = GenerationType.IDENTITY)` | Define a estratégia de geração automática do ID (ex.: `IDENTITY`, `AUTO`, `SEQUENCE`, `TABLE`). |
 
-### 🔗 Anotações de colunas  
+### 🔗 Anotações de COLUNAS
 | Anotação | Descrição |
 |----------|-----------|
 | `@Column(nullable = false)` | Personaliza uma coluna: nome, obrigatoriedade (`nullable`), unicidade (`unique`), tamanho (`length`), etc. |
 | `@Lob` | Indica que o campo será persistido como objeto de grande tamanho (LOB); geralmente usado para BLOBs ou CLOBs. |
 | `@Transient` | Indica que o campo **não será persistido** no banco de dados — apenas na memória da aplicação. |
 
-### :family_man_woman_boy: Anotações de relacionamentos  
+### :family_man_woman_boy: Anotações de RELACIONAMENTOS
 | Anotação | Tipo | Descrição |
 |----------|------|-----------|
 | `@OneToOne` | 1 : 1 | Um registro está ligado exatamente a outro. |
@@ -149,14 +149,14 @@ public int hashCode() {
 | `@ManyToMany` | N : N | Vários registros de ambas as entidades estão associados entre si. |
 | `@JoinColumn` | — | Define a coluna da chave estrangeira (ex.: `referencedColumnName`, `nullable`, `name`) para mapear o relacionamento. |
 
-### :pencil: Anotações de data e auditoria  
+### :pencil: Anotações de DATA E AUDITORIA
 | Anotação | Descrição |
 |----------|-----------|
 | `@Temporal` | Controla o tipo de dado para atributos de data/hora (`TemporalType.DATE`, `TIME`, `TIMESTAMP`). |
 | `@CreationTimestamp` | Preenche automaticamente com a data/hora da **criação** do registro. |
 | `@UpdateTimestamp` | Preenche automaticamente com a data/hora da **última atualização** do registro. |
 
-### 🔗 Anotações de herança  
+### :crown: Anotações de HERANÇA  
 | Anotação | Descrição |
 |----------|-----------|
 | `@MappedSuperclass` | Marca uma classe como superclasse de entidades — não vira uma tabela por si só, mas suas subclasses herdam seus campos. |
