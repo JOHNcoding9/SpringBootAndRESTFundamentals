@@ -7,7 +7,7 @@
 
 ## 🇧🇷 Sobre o Projeto
 Este repositório tem como objetivo **estudo e registro conceitual** de como as principais camadas do backend **Java + Spring Boot** se conectam e interagem.  
-⚠️ **Importante:** este projeto **não é executável** — contém apenas exemplos de código organizados por camadas.
+⚠️ **Importante:** este projeto **não é executável**,  contém apenas exemplos de código organizados por camadas.
 
 ### 🧠 Camadas estudadas (Resumidas)
 - **Entity** → Representa as entidades do domínio.  
@@ -32,7 +32,7 @@ Este repositório tem como objetivo **estudo e registro conceitual** de como as 
 
 ## 🇺🇸 About the Project
 This repository is an **educational record** to understand how the core layers of a **Spring Boot REST backend** interact and work together.  
-⚠️ **Note:** this is **not a runnable project** — it contains only structured code examples organized by layer.
+⚠️ **Note:** this is **not a runnable project** , it contains only structured code examples organized by layer.
 
 ### 🧠 Studied Layers
 - **Entity** → Domain entity representation.  
