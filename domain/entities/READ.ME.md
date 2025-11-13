@@ -38,7 +38,7 @@ public class Cliente {
     @Column(unique = true, nullable = false)
     private String email;
 }
-
+```
 
 🔗 Relacionamentos
 |Anotação|	Tipo|	Descrição|
