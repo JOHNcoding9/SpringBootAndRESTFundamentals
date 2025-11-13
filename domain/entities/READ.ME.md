@@ -3,7 +3,7 @@
 ## 🎯 Função principal
 
 A camada **Entity** é responsável por representar as **entidades do domínio**, ou seja, os **objetos Java que refletem as tabelas do banco de dados**.  
-Cada classe Entity mapeia uma tabela real e define seus **campos (colunas)**, **chaves primárias**, **relacionamentos** e **restrições**.
+Cada classe Entity mapeia uma tabela real e define seus **campos (colunas)**, **chaves primárias e estrangeiras**, **relacionamentos** e **restrições**.
 
 Essa camada permite que a aplicação trabalhe com **objetos Java em vez de comandos SQL diretos**, facilitando a **persistência de dados** e tornando o código mais **limpo, seguro e orientado a objetos**.
 
