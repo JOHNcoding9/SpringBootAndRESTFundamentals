@@ -53,22 +53,23 @@ Essas anotações podem usar atributos como mappedBy, cascade e fetch para contr
 🏗️ Construtores
 
 Um construtor padrão (sem parâmetros) é obrigatório para o funcionamento do JPA.
-
+```java
 public MinhaEntidade() {
     // Construtor padrão exigido pelo JPA
 }
+```
 
 Construtores adicionais podem ser usados para inicializar objetos com valores específicos.
-
+```java
 public MinhaEntidade(String nome) {
     this.nome = nome;
 }
-
+```
 🧰 Getters e Setters
 
 Os métodos Get e Set são essenciais para que o Hibernate consiga ler e gravar valores nas propriedades da entidade.
 Eles também mantêm o encapsulamento e permitem manipular os dados de forma controlada.
-
+```java
 // Getter - obtém o valor
 public Long getId() {
     return id;
@@ -78,6 +79,7 @@ public Long getId() {
 public void setId(Long id) {
     this.id = id;
 }
+```
 
 
 Cada campo da entidade deve possuir seu Getter e Setter correspondente.
