@@ -12,7 +12,7 @@ São separados em: <br>
 
 Em resumo, DTOs basicamente filtram as Entidades antes de transportá-las às outras camadas da aplicação.
 
-**  Por que usar DTOs? **
+**Por que usar DTOs?** <br>
 📥 Encapsulamento de dados: Evita expôr diretamnte entidades do banco de dados. <br>
 🔑 Segurança: permite controlar quais dados serão enviados e recebidos. <br>
 🎭 Performance: reduz o volume de dados trafegados (Apenas o necessário).  <br>
