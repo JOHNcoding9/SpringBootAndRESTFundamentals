@@ -56,9 +56,9 @@ public enum StatusEnum {
 
 ## Enums são ideais para:
 
-🟤 status
-🟤 papéis de usuário
-🟤 modos de pagamento
-🟤 flags fixas
+⚫ status <br>
+⚫ papéis de usuário <br>
+⚫ modos de pagamento <br>
+⚫ flags fixas
 
 
