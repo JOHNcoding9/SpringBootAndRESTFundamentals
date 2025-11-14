@@ -48,7 +48,7 @@ Essas validações são automáticas com **@Valid** nos Controllers.
 
 ## 2º Validação Semântica ( Ralizada na camada de Serviço)
 🎯 Objetivos:
-⚫ Validar regras de negócio que dependem do contexto da aplicação.
+⚫ Validar regras de negócio que dependem do contexto da aplicação. <br>
 ("Email já cadastrado", "Data de nascimento não pode ser 2 anos anteriores ao atual", "Nome de usuário já está em uso" ....)
 
 ```java
@@ -59,6 +59,6 @@ if (usuarioRepository.existsByEmail(dto.getEmail()) {
 
 ## 3º Validação de Persistência ( Ralizada no Banco de Dados)
 🎯 Objetivos:
-⚫ Garantir integridade referencial e unicidade no banco real da aplicação (Postgre, MySQL ...)
+⚫ Garantir integridade referencial e unicidade no banco real da aplicação (Postgre, MySQL ...) <br>
 ⚫ Uso  de constraints do banco real: UNIQUE, FOREIGN KEY, PRIMARY KEY ...
 
