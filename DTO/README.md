@@ -25,7 +25,7 @@ Em resumo, DTOs basicamente filtram as Entidades antes de transportá-las às ou
 
 # ⚙️ Etapas de validação de uma aplicação
 
-## 1º Validação Estrutural ( Ralizada na camada de DTO)
+## 1º Validação Estrutural ( Realizada na camada de DTO)
 🎯 Objetivos: <br>
 ⚫ Garantir que dados preenchidos têm o formato esperado. <br>
 ⚫ Realizar a validação dos dados (Email existe? CPF existe? ...) <br>
@@ -46,7 +46,7 @@ public class UsuarioDTO {
 ```
 Essas validações são automáticas com **@Valid** nos Controllers.
 
-## 2º Validação Semântica ( Ralizada na camada de Serviço)
+## 2º Validação Semântica ( Realizada na camada de Serviço)
 🎯 Objetivos: <br>
 ⚫ Validar regras de negócio que dependem do contexto da aplicação. <br>
 ("Email já cadastrado", "Data de nascimento não pode ser 2 anos anteriores ao atual", "Nome de usuário já está em uso" ....)
@@ -57,7 +57,7 @@ if (usuarioRepository.existsByEmail(dto.getEmail()) {
 }
 ```
 
-## 3º Validação de Persistência ( Ralizada no Banco de Dados)
+## 3º Validação de Persistência ( Realizada no Banco de Dados)
 🎯 Objetivos: <br>
 ⚫ Garantir integridade referencial e unicidade no banco real da aplicação (Postgre, MySQL ...) <br>
 ⚫ Uso  de constraints do banco real: UNIQUE, FOREIGN KEY, PRIMARY KEY ...
