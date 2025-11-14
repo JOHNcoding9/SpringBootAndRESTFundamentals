@@ -19,8 +19,8 @@ Em resumo, DTOs basicamente filtram as Entidades antes de transportá-las às ou
 
 
 ## Características dos DTOs
-❌ Não contém regras de negócio, apenas os dados de entidades.
-✔️ Realiza validações dos dados.
+❌ Não contém regras de negócio, apenas os dados de entidades. <br>
+✔️ Realiza validações dos dados. <br>
 
 
 # ⚙️ Etapas de validação de uma aplicação
