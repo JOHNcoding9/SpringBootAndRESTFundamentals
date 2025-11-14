@@ -74,4 +74,51 @@ PRIMARY KEY (id_usuario)
 ```
 
 
+# :open_book: Mapeamento de DTO 
+
+### 👻 Validações de PRESENÇA E NULIDADE
+| Anotação | Descrição |
+|----------|-----------|
+| `@NotNull` | Garante que o campo **não seja null** |
+| `@NotEmpty` | Garante que o campo **não seja vazio "" e nem null** |
+| `@NotBlank` | Garante que o campo **não seja vazio "" e nem apenas espaços em branco** |
+
+### 🐋 validações de TAMANHO E VALOR
+| Anotação | Descrição |
+|----------|-----------|
+| `@Size(min = x, max = y)` | Valida a length (comprimento) mínimo e máximo de strings,listas,arrays ...|
+| `@Min(value = x)` | Define o valor mínimo para **números inteiros** |
+| `@Max(value = y)` | Define o valor máximo para **números inteiros** |
+| `@DecimalMin(value = x)` | Define o valor mínimo para **números decimais** |
+| `@DecimalMax(value = y)` | Define o valor máximo para **números decimais** |
+| `@Positive` | Exige que o valor seja **maior que zero**|
+| `@Negative` | Exige que o valor seja **menor que zero**|
+| `@PositiveOrZero` | Exige que o valor seja **maior igual a zero**|
+|`@NegativeOrZero` | Exige que o valor seja **menor igual a zero**|
+
+
+### 📫 Validações de FORMATO
+| Anotação | Descrição |
+|----------|-----------|
+| `@Email` | Garante que o campo seja um email válido |
+| `@Pattern(regexp="regex")` | Valida o campo com expressão regular|
+| `@Digits(integer = x, fraction = y)` | Valida números com casas decimais específicas|
+
+### ⏲️Validações de DATA
+| Anotação | Descrição |
+|----------|-----------|
+| `@Past` | Garante que a data esteja no **passado** |
+| `@PastOrPresent` | Garante que a data esteja no **passado ou presente** |
+| `@Future` | Garante que a data esteja no **futuro**|
+| `@FutureOrPresent` | Garante que a data esteja no **futuro ou presente**|
+
+
+### 0️⃣  Validações de BOOLEANS E OBJETOS ANINHADOS
+| Anotação | Descrição |
+|----------|-----------|
+| `@AssertTrue` | Exige que o campo seja **True** |
+| `@AssertFalse` | Exige que o campo seja **False** |
+| `@Valid`  | Ativa validação em objetos aninhados **(DTOs dentro de DTOs)**|
+
+
 
