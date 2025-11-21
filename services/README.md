@@ -4,7 +4,7 @@
 
 * A camada de serviço é responsável por conter a **Lógica de negócio** (composta por rergras de negócio), as quais definem **como** as operações devem ocorrer na aplicação.
   
-* Service serve como um intermediário entre **Controller** e **Repository**
+* Service serve como um intermediário entre **Controller** e **Repository** <br>
   Controller --> Recebe e responde requisições <br>
   Service    --> Aplica regras de negócio <br>
   Repository --> Interage com o banco de dados <br>
