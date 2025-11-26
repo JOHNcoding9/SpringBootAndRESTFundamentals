@@ -37,7 +37,7 @@ para que sejam aceitas as requisições do usuário antes de interagir com o ban
 ⚫ Quando é necessário manipular dados antes de salvar/retornar <br>
 ⚫ Para centralizar a lógica e evitar duplicação <br>
 
-# :open_book: Mapeamento das Entidades
+# :open_book: Mapeamento de SERVIÇOS
 
 ### 🔗 Anotações de CLASSE 
 | Anotação | Descrição |
