@@ -12,37 +12,37 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/chamados")
+@RequestMapping("/chamados") // Define a rota do recusro como "/chamados"
 public class ChamadoController {
 
-    private final ChamadoService chamadoService;
+    private final ChamadoService chamadoService; //Puxa o Serviço do reucurso para a camada Controller
 
     public ChamadoController(ChamadoService chamadoService) {
         this.chamadoService = chamadoService;
     }
 
-    // Cria um novo chamado *
+    // Retorna a resposta adequada ao realizar POST com sucesso
     @PostMapping
     public ResponseEntity<ChamadoResponseDTO> create(@Valid @RequestBody ChamadoRequestDTO dto) {
         ChamadoResponseDTO response = chamadoService.create(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    // Retorna um chamado pelo ID
+      // Retorna a resposta adequada ao realizar GET com sucesso
     @GetMapping("/{id}")
     public ResponseEntity<ChamadoResponseDTO> findById(@PathVariable("id") Integer id) {
         ChamadoResponseDTO response = chamadoService.findById(id);
         return ResponseEntity.ok(response);
     }
 
-    // Lista todos os chamados
+   // Retorna a resposta adequada ao realizarGET ALL com sucesso
     @GetMapping
     public ResponseEntity<List<ChamadoResponseDTO>> findAll() {
         List<ChamadoResponseDTO> chamados = chamadoService.findAll();
         return ResponseEntity.ok(chamados);
     }
-
-    // Atualiza um chamado existente
+    
+   // Retorna a resposta adequada ao realizar PUT com sucesso
     @PutMapping("/{id}")
     public ResponseEntity<ChamadoResponseDTO> update(
             @PathVariable("id") Integer id,
@@ -51,10 +51,11 @@ public class ChamadoController {
         return ResponseEntity.ok(response);
     }
 
-    // Exclui um chamado
+   // Retorna a resposta adequada ao realizar DELETE com sucesso
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id) {
         chamadoService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
+
