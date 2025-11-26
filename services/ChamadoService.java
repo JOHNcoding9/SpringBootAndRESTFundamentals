@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Service
 public class ChamadoService {
 
-    @Autowired
+    @Autowired   // Injeta o repositório gerenciado pelo Spring
     private ChamadoRepository chamadoRepository;
 
     @Autowired
@@ -29,25 +29,29 @@ public class ChamadoService {
     @Autowired
     private ClienteRepository clienteRepository;
 
+     // Busca segura com tratamento para recurso inexistente.(Get por ID)
     public ChamadoResponseDTO findById(Integer id) {
         Chamado chamado = chamadoRepository.findById(id)
                 .orElseThrow(() -> new ObjectNotFoundException("Chamado não encontrado! ID: " + id));
 
-        return toResponseDTO(chamado);
+        return toResponseDTO(chamado); // Conversão entidade → DTO de resposta
     }
 
+    // Busca segura com tratamento para lista vazia. (GET ALL)
     public List<ChamadoResponseDTO> findAll() {
         return chamadoRepository.findAll().stream()
                 .map(this::toResponseDTO)
                 .collect(Collectors.toList());
     }
 
+// Criação de novo recurso. (POST)
     public ChamadoResponseDTO create(ChamadoRequestDTO dto) {
-        Chamado chamado = fromRequestDTO(dto);
+        Chamado chamado = fromRequestDTO(dto);  // Converte DTO → entidade
         Chamado salvo = chamadoRepository.save(chamado);
-        return toResponseDTO(salvo);
+        return toResponseDTO(salvo); // Conversão entidade → DTO de resposta
     }
 
+    // Atualização de  recurso existente (UPDATE)
     public ChamadoResponseDTO update(Integer id, ChamadoRequestDTO dto) {
         Chamado chamado = chamadoRepository.findById(id)
                 .orElseThrow(() -> new ObjectNotFoundException("Chamado não encontrado! ID: " + id));
@@ -57,7 +61,8 @@ public class ChamadoService {
 
         Cliente cliente = clienteRepository.findById(dto.getClienteId())
                 .orElseThrow(() -> new ObjectNotFoundException("Cliente não encontrado! ID: " + dto.getClienteId()));
-
+        
+ // Atualiza valores do recurso
         chamado.setPrioridade(Prioridade.toEnum(dto.getPrioridade()));
         chamado.setStatus(Status.toEnum(dto.getStatus()));
         chamado.setTitulo(dto.getTitulo());
@@ -72,6 +77,7 @@ public class ChamadoService {
         return toResponseDTO(atualizado);
     }
 
+ // Exclusão de recurso existente (DELETE)
     public void delete(Integer id) {
         Chamado chamado = chamadoRepository.findById(id)
                 .orElseThrow(() -> new ObjectNotFoundException("Chamado não encontrado! ID: " + id));
@@ -79,11 +85,13 @@ public class ChamadoService {
         chamadoRepository.delete(chamado);
     }
 
-    // =============================
-    //  Métodos auxiliares
-    // =============================
+   // =======================================================
+    // Métodos auxiliares de conversão (DTO ↔ Entidade)
+    // =======================================================
 
+ // Converte DTO de requisição para a entidade Chamado
     private Chamado fromRequestDTO(ChamadoRequestDTO dto) {
+        // Busca entidades relacionadas obrigatórias
         Tecnico tecnico = tecnicoRepository.findById(dto.getTecnicoId())
                 .orElseThrow(() -> new ObjectNotFoundException("Técnico não encontrado! ID: " + dto.getTecnicoId()));
 
@@ -117,3 +125,4 @@ public class ChamadoService {
         return dto;
     }
 }
+
