@@ -81,6 +81,7 @@ Estados possíveis:
 | `@Async` | Indica que o método será executado em outra thread, sem bloquear o fluxo principal.(Requer Classe de configuração contendo @EnableAsync)|
 | `@Retryable` |Tenta executar o método novamente automaticamente caso ocorra erro específico. |
 | `@Cacheable, @CacheEvict, @CachePut` | Quando o service utiliza caching|
+<br>
 O que é Caching?  <br>
 Caching é uma técnica de otimização na qual resultados de operações custosas (como consultas ao banco, chamadas externas, cálculos pesados) são armazenados temporariamente em memória ou outro mecanismo rápido, para evitar recomputação. <br>
 
