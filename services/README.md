@@ -39,11 +39,22 @@ para que sejam aceitas as requisições do usuário antes de interagir com o ban
 
 # :open_book: Mapeamento de SERVIÇOS
 
-### 🔗 Anotações de CLASSE 
+### 🧰 Anotação de INICIALIZAÇÃO
 | Anotação | Descrição |
 |----------|-----------|
-| `@Entity` | Marca a classe como entidade gerenciada pelo **JPA (Java Persistence API)**. |
-| `@Table(name = "nome_tabela")` | Define explicitamente o nome da tabela associada. Se omitida, o nome da classe será usado. |
+| `@Service` | Indica ao Spring Boot que a classe faz parte da camada de serviço. |
+| `@Autowired` | Faz automaticamente a injeção de dependencias, permitindo que o service use os métodos do repositório sem instanciá-los novamente. |
+
+
+### 🏦  Anotação de TRANSAÇÃO
+| Anotação | Descrição |
+|----------|-----------|
+| `@Transactional` | Indica que os métodos da classe (ou o método anotado) devem ser executados dentro de uma transação do banco de dados (Isso garante as propriedades ACID). |
+| `@Transactional(readOnly = true)` | Variante de @Transactional usada para métodos de apenas leitura. |
+
+⚫ ACID: Atomicidade (tudo ou nada), Consistência, Isolamento e Durabilidade. Ou seja, se alguma operação falhar durante a transação, todas as mudanças serão revertidas (“rollback”). <br>
+⚫ Use-a quando você for fazer operações de escrita/alteração no banco (save, update, delete), ou quando o método envolve várias operações que precisam ser atômicas (ex: salvar várias entidades, atualizar relacionamento,      etc.). <br>
+
 
 
 
@@ -51,6 +62,7 @@ para que sejam aceitas as requisições do usuário antes de interagir com o ban
 ```java
 
 @Service
+@Transactional
  public class AlunoService {
    @Autowired
    private AlunoRepository alunoRepository;
