@@ -38,8 +38,10 @@ para que sejam aceitas as requisições do usuário antes de interagir com o ban
 ⚫ Para centralizar a lógica e evitar duplicação <br>
 
 
-## O que são Beans? <br>
+## :beans: O que são Beans? <br>
 
+:beans: São objetos Java gerenciados pelo Spring.
+Quando você marca uma classe de serviço com @Service (ou outra anotação de stereotype), essa classe se torna um bean, ou seja: o Spring vai gerenciar sua instância, permitir injeção de dependências (ex.: repositórios), gerenciar seu escopo, transações, etc. Isso permite que sua camada de negócio seja desacoplada, testável e configurável.
 
 # :open_book: Mapeamento de SERVIÇOS
 
