@@ -69,7 +69,8 @@ public abstract class Pessoa implements Serializable {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+    
+// Converte o código numérico salvo no banco para o enum Perfil. (Salvar Ordinais numéricos é mais leve para o banco, o truque é usar eles para serem armazenados e quando necessário, convertê-los para String/descrição do valor do enum)
     public Perfil getPerfil() {
         return Perfil.toEnum(perfil);
     }
@@ -86,5 +87,6 @@ public abstract class Pessoa implements Serializable {
         this.dataCriacao = dataCriacao;
     }
 }
+
 
 
