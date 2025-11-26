@@ -8,7 +8,7 @@ import java.util.Set;
 
 import com.example.demo.domain.enums.Perfil;
 
-@MappedSuperclass
+@MappedSuperclass  //Define a classe como uma SuperClasse ( não será uma tabela/entidade, apenas um molde para criar outras com as mesmas características)
 public abstract class Pessoa implements Serializable {
 
     @Id
@@ -86,3 +86,4 @@ public abstract class Pessoa implements Serializable {
         this.dataCriacao = dataCriacao;
     }
 }
+
