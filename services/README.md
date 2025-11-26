@@ -58,6 +58,13 @@ Quando você marca uma classe de serviço com @Service (ou outra anotação de s
 |----------|-----------|
 | `@Transactional` | Indica que os métodos da classe (ou o método anotado) devem ser executados dentro de uma transação do banco de dados (Isso garante as propriedades ACID). |
 | `@Transactional(readOnly = true)` | Variante de @Transactional usada para métodos de apenas leitura. |
+| `@TransactionalEventListener` | Utilizada para executar um método somente após um evento ser publicado e após uma transação chegar em determinado estado. (reagir a algo que só deve ocorrer se a transação realmente tiver sido confirmada.)|
+Estados possíveis: 
+* TransactionPhase.BEFORE_COMMIT <br>
+* TransactionPhase.AFTER_COMMIT (mais comum) <br>
+* TransactionPhase.AFTER_ROLLBACK <br>
+* TransactionPhase.AFTER_COMPLETION <br>
+  
 <br>
 ⚫ ACID: Atomicidade (tudo ou nada), Consistência, Isolamento e Durabilidade. Ou seja, se alguma operação falhar durante a transação, todas as mudanças serão revertidas (“rollback”). <br>
 ⚫ Use-a quando você for fazer operações de escrita/alteração no banco (save, update, delete), ou quando o método envolve várias operações que precisam ser atômicas (ex: salvar várias entidades, atualizar relacionamento,      etc.). <br>
@@ -70,11 +77,30 @@ Quando você marca uma classe de serviço com @Service (ou outra anotação de s
 |----------|-----------|
 | `@Lazy` | Adia a criação/inicialização do bean até ser efetivamente necessário, (bom para beans pesados ou dependências opcionais). |
 | `@Validated` | Ativa validação de parâmetros no nível de método do service (Bean Validation). |
-| `@TransactionalEventListener` | Usado para reagir a eventos dentro de uma transação (Pode existir em service, mas não é específico de service). |
-| `@Async` | Realiza execução assíncrona de métodos (Muito usado em services, mas precisa de @EnableAsync)|
+| `@Async` | Indica que o método será executado em outra thread, sem bloquear o fluxo principal.(Requer Classe de configuração contendo @EnableAsync)|
+| `@Retryable` |Tenta executar o método novamente automaticamente caso ocorra erro específico. |
 | `@Cacheable, @CacheEvict, @CachePut` | Quando o service utiliza caching|
-| `@Retryable` | Usado para tentativas automáticas em chamadas externas (ex.: microservices)|
-<br>
+O que é Caching?  <br>
+Caching é uma técnica de otimização na qual resultados de operações custosas (como consultas ao banco, chamadas externas, cálculos pesados) são armazenados temporariamente em memória ou outro mecanismo rápido, para evitar recomputação. <br>
+
+1.Um método é executado. <br>
+2.O resultado é salvo no cache com uma chave. <br>
+3.Na próxima execução com os mesmos parâmetros, <br>
+Spring verifica o cache: <br>
+Se existir: retorna imediatamente do cache <br>
+Se não existir: executa o método e salva o novo valor no cache <br>
+
+### ✔️ Usar quando
+- Consultas ao banco são repetitivas  
+- Dados mudam pouco  
+- Operação é custosa (CPU, IO)  
+- Chamada externa é lenta (HTTP, API)  
+- Há necessidade de melhorar o tempo de resposta da aplicação  
+
+### ❌ Não usar quando
+- Os dados mudam constantemente  
+- As operações exigem sempre o estado mais atualizado possível  
+- Os parâmetros variam muito (reduzindo a chance de “cache hit”)  
 
 
 
