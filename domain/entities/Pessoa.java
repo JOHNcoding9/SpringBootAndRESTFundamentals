@@ -12,12 +12,12 @@ import com.example.demo.domain.enums.Perfil;
 public abstract class Pessoa implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // define como um ID autogerado pelo banco
     private Integer id;
 
     private String nome;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false) //Garante valor com unicidade e não null
     private String cpf;
 
     @Column(unique = true, nullable = false)
@@ -86,4 +86,5 @@ public abstract class Pessoa implements Serializable {
         this.dataCriacao = dataCriacao;
     }
 }
+
 
