@@ -59,6 +59,7 @@ Quando você marca uma classe de serviço com @Service (ou outra anotação de s
 | `@Transactional` | Indica que os métodos da classe (ou o método anotado) devem ser executados dentro de uma transação do banco de dados (Isso garante as propriedades ACID). |
 | `@Transactional(readOnly = true)` | Variante de @Transactional usada para métodos de apenas leitura. |
 | `@TransactionalEventListener` | Utilizada para executar um método somente após um evento ser publicado e após uma transação chegar em determinado estado. (reagir a algo que só deve ocorrer se a transação realmente tiver sido confirmada.)|
+<br>
 Estados possíveis: 
 * TransactionPhase.BEFORE_COMMIT <br>
 * TransactionPhase.AFTER_COMMIT (mais comum) <br>
