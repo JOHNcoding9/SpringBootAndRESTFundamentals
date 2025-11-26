@@ -12,7 +12,7 @@ import com.example.demo.domain.enums.Status;
 public class Chamado implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // define como um ID autogerado pelo banco
     private Integer id;
 
     private LocalDate dataAbertura = LocalDate.now();
@@ -23,17 +23,17 @@ public class Chamado implements Serializable {
     private String titulo;
     private String observacoes;
 
-    @ManyToOne
+    @ManyToOne  // Tipo de relacionamento N:1  (muitos para um). No caso, muitos chamados para um técnico.
     @JoinColumn(name = "tecnico_id", nullable = false)
     private Tecnico tecnico;
 
-    @ManyToOne
+    @ManyToOne  // Tipo de relacionamento N:1  (muitos para um). No caso, muitos cahamdos para um cliente.
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
 
 
-    // Getters e Setters
+    // Seção de configuração de Getters e Setters
     public Integer getId() {
         return id;
     }
@@ -58,7 +58,8 @@ public class Chamado implements Serializable {
         this.dataFechamento = dataFechamento;
     }
 
-    public Prioridade getPrioridade() {
+// Converte o código numérico salvo no banco para o enum Prioridade. (Salvar Ordinais numéricos é mais leve para o banco, o truque é usar eles para serem armazenados e quando necessário, convertê-los para String/descrição do valor do enum)
+    public Prioridade getPrioridade() {    
         return Prioridade.toEnum(prioridade);
     }
 
@@ -66,6 +67,7 @@ public class Chamado implements Serializable {
         this.prioridade = prioridade.getCodigo();
     }
 
+// Converte o código numérico salvo no banco para o enum Status. (Salvar Ordinais numéricos é mais leve para o banco, o truque é usar eles para serem armazenados e quando necessário, convertê-los para String/descrição do valor do enum)
     public Status getStatus() {
         return Status.toEnum(status);
     }
@@ -106,3 +108,4 @@ public class Chamado implements Serializable {
         this.cliente = cliente;
     }
 }
+
