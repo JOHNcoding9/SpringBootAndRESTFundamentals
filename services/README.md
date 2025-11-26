@@ -59,7 +59,10 @@ para que sejam aceitas as requisições do usuário antes de interagir com o ban
 <br>
 ⚫ ACID: Atomicidade (tudo ou nada), Consistência, Isolamento e Durabilidade. Ou seja, se alguma operação falhar durante a transação, todas as mudanças serão revertidas (“rollback”). <br>
 ⚫ Use-a quando você for fazer operações de escrita/alteração no banco (save, update, delete), ou quando o método envolve várias operações que precisam ser atômicas (ex: salvar várias entidades, atualizar relacionamento,      etc.). <br>
+
 <br>
+
+
 ### ➕  Anotações EXTRA
 | Anotação | Descrição |
 |----------|-----------|
