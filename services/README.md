@@ -68,7 +68,12 @@ Quando você marca uma classe de serviço com @Service (ou outra anotação de s
 ### ➕  Anotações EXTRA
 | Anotação | Descrição |
 |----------|-----------|
-| `@Lazy` | Adia a criação/inicialização do bean até ser efetivamente necessário, (bom para beans pesados ou dependências opcionais) |
+| `@Lazy` | Adia a criação/inicialização do bean até ser efetivamente necessário, (bom para beans pesados ou dependências opcionais). |
+| `@Validated` | Ativa validação de parâmetros no nível de método do service (Bean Validation). |
+| `@TransactionalEventListener` | Usado para reagir a eventos dentro de uma transação (Pode existir em service, mas não é específico de service). |
+| `@Async` | Realiza execução assíncrona de métodos (Muito usado em services, mas precisa de @EnableAsync)|
+| `@Cacheable, @CacheEvict, @CachePut` | Quando o service utiliza caching|
+| `@Retryable` | Usado para tentativas automáticas em chamadas externas (ex.: microservices)|
 <br>
 
 
