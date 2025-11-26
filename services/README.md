@@ -31,13 +31,14 @@ para que sejam aceitas as requisições do usuário antes de interagir com o ban
 |"Somente administradores podem alterar o perfil de um usuário."|
 |"Toda operação deve registrar log de auditoria."|
 
-# Quando  usar SERVICE? <br>
+## Quando  usar SERVICE? <br>
 
 ⚫ Sempre que houver regras de negócio <br>
 ⚫ Quando é necessário manipular dados antes de salvar/retornar <br>
 ⚫ Para centralizar a lógica e evitar duplicação <br>
 
-#O que são Beans? <br>
+
+## O que são Beans? <br>
 
 
 # :open_book: Mapeamento de SERVIÇOS
@@ -48,22 +49,22 @@ para que sejam aceitas as requisições do usuário antes de interagir com o ban
 | `@Service` | Indica ao Spring Boot que a classe faz parte da camada de serviço. |
 | `@Autowired` | Faz automaticamente a injeção de dependencias, permitindo que o service use os métodos do repositório sem instanciá-los novamente. |
 | `@Qualifier` | Permite indicar explicitamente qual bean será injetado (Usada quando há múltimas implementações de uma interface)|
-
+<br>
 
 ### 💸  Anotação de TRANSAÇÃO
 | Anotação | Descrição |
 |----------|-----------|
 | `@Transactional` | Indica que os métodos da classe (ou o método anotado) devem ser executados dentro de uma transação do banco de dados (Isso garante as propriedades ACID). |
 | `@Transactional(readOnly = true)` | Variante de @Transactional usada para métodos de apenas leitura. |
-
+<br>
 ⚫ ACID: Atomicidade (tudo ou nada), Consistência, Isolamento e Durabilidade. Ou seja, se alguma operação falhar durante a transação, todas as mudanças serão revertidas (“rollback”). <br>
 ⚫ Use-a quando você for fazer operações de escrita/alteração no banco (save, update, delete), ou quando o método envolve várias operações que precisam ser atômicas (ex: salvar várias entidades, atualizar relacionamento,      etc.). <br>
-
+<br>
 ### ➕  Anotações EXTRA
 | Anotação | Descrição |
 |----------|-----------|
 | `@Lazy` | Adia a criação/inicialização do bean até ser efetivamente necessário, (bom para beans pesados ou dependências opcionais) |
-
+<br>
 
 
 
