@@ -46,7 +46,7 @@ para que sejam aceitas as requisições do usuário antes de interagir com o ban
 | `@Autowired` | Faz automaticamente a injeção de dependencias, permitindo que o service use os métodos do repositório sem instanciá-los novamente. |
 
 
-### 🏦  Anotação de TRANSAÇÃO
+### :bank:  Anotação de TRANSAÇÃO
 | Anotação | Descrição |
 |----------|-----------|
 | `@Transactional` | Indica que os métodos da classe (ou o método anotado) devem ser executados dentro de uma transação do banco de dados (Isso garante as propriedades ACID). |
